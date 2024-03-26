@@ -13,6 +13,7 @@ java {
 
 repositories {
     mavenCentral()
+    mavenLocal()
 }
 
 dependencies {
@@ -25,6 +26,11 @@ dependencies {
     implementation 'org.hibernate:hibernate-spatial:6.4.4.Final'
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    // https://github.com/mokszr/ultimate-geojson
+    implementation 'org.ugeojson:ugeojson-parser:0.0.1-SNAPSHOT'
+    implementation 'org.ugeojson:ugeojson-builder:0.0.1-SNAPSHOT'
+    implementation 'org.ugeojson:ugeojson-math:0.0.1-SNAPSHOT'
 }
 
 tasks.named('test') {
