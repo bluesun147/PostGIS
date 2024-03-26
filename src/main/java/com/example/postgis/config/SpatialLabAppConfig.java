@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import org.locationtech.jts.geom.Geometry;
 import org.locationtech.jts.geom.LineString;
+import org.locationtech.jts.geom.Point;
 import org.locationtech.jts.geom.Polygon;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,6 +22,7 @@ public class SpatialLabAppConfig {
         simpleModule.addSerializer(Geometry.class, new CustomUGeojsonSerializer());
         simpleModule.addDeserializer(Polygon.class, new CustomUGeojsonDeserializer<>());
         simpleModule.addDeserializer(LineString.class, new CustomUGeojsonDeserializer<>());
+        simpleModule.addDeserializer(Point.class, new CustomUGeojsonDeserializer<>());
 
         objectMapper.registerModule(simpleModule);
         return objectMapper;
